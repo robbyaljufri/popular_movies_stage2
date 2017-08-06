@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+  <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <ImageView
+      android:id="@+id/movie_detail_poster"
+      style="@style/MoviePoster"
+      android:layout_width="0dp"
+      android:layout_weight="1"
+      android:src="@drawable/the_force_awakens"/>
+
+    <LinearLayout
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_weight="1"
+      android:paddingTop="10dp"
+      android:orientation="vertical">
+
+      <TextView
+        android:id="@+id/movie_detail_title"
+        style="@style/MovieTitle"
+        android:text="Star Wars Episode VII: The Force Awakens"/>
+
+      <TextView
+        android:id="@+id/movie_detail_release_date"
+        style="@style/MovieReleaseDate"
+        android:text="December 2015"/>
+
+      <LinearLayout
+        android:id="@+id/movie_user_rating"
+        style="@style/MovieUserRatingLayout">
+
+        <TextView
+          android:id="@+id/movie_detail_rating"
+          style="@style/MovieUserRating"
+          android:text="7.5 / 10 (TMDb)"/>
+
+        <CheckBox
+          android:id="@+id/favorite"
+          style="?android:attr/starStyle"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:onClick="saveFavorite"
+          android:textColor="@color/light_gray"
+          android:textSize="20sp"
+          android:textStyle="italic"/>
+
+      </LinearLayout>
+
+      </LinearLayout>
+
+
+
+  </LinearLayout>
+
+  <TextView
+    android:id="@+id/movie_detail_overview"
+    style="@style/MovieOverview"
+    android:layout_width="wrap_content"
+
+    android:text="This is the movide description.  The description of the movie is this."/>
+
+</LinearLayout>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+  <!-- GridView Style -->
+  <style name="GridLayout">
+    <item name="android:layout_width">match_parent</item>
+    <item name="android:layout_height">match_parent</item>
+    <item name="android:numColumns">4</item>
+    <item name="android:verticalSpacing">1dp</item>
+    <item name="android:horizontalSpacing">1dp</item>
+    <item name="android:paddingRight">1dp</item>
+    <item name="android:paddingLeft">1dp</item>
+    <item name="android:stretchMode">columnWidth</item>
+    <item name="android:gravity">center</item>
+  </style>
+
+</resources>

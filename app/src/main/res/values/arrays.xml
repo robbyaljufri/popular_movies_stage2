@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+  <string-array name="movie_sort_options">
+    <item>Popularity</item>
+    <item>Rating</item>
+    <item>Favorites</item>
+  </string-array>
+
+  <string-array name="movie_sort_values">
+    <item>popularity.desc</item>
+    <item>vote_average.desc</item>
+    <item>favorites</item>
+  </string-array>
+
+</resources>
