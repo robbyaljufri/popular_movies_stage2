@@ -45,7 +45,7 @@ public class FetchMoviesTask extends AsyncTask<String, Void, Void> {
 
     try {
 
-      final String MOVIE_DB_URL = "http://api.themoviedb.org/3/discover/movie?";
+      final String MOVIE_DB_URL = "http://api.themoviedb.org/3/movie/popular";
       final String SORT_PARAM = "sort_by";
       final String API_KEY_PARAM = "api_key";
       final String PAGE_PARAM = "page";
