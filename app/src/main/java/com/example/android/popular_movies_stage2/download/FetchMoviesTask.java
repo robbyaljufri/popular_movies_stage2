@@ -7,7 +7,7 @@ import android.os.AsyncTask;
 import android.util.Log;
 
 import com.example.android.popular_movies_stage2.R;
-import com.example.android.popular_movies_stage2.callbacks.APICallback;
+import com.example.android.popular_movies_stage2.panggil.APICallback;
 import com.example.android.popular_movies_stage2.data.MovieContract.MovieEntry;
 import com.example.android.popular_movies_stage2.model.Movie;
 import com.google.gson.Gson;

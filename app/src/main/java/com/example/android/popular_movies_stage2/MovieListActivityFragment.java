@@ -20,10 +20,10 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.TextView;
 
-import com.example.android.popular_movies_stage2.adapters.MovieDetailAdapter;
-import com.example.android.popular_movies_stage2.adapters.MovieListAdapter;
-import com.example.android.popular_movies_stage2.callbacks.APICallback;
-import com.example.android.popular_movies_stage2.callbacks.ItemSelectedCallback;
+import com.example.android.popular_movies_stage2.adapter.AdapterMovieDetail;
+import com.example.android.popular_movies_stage2.adapter.AdapterMovieList;
+import com.example.android.popular_movies_stage2.panggil.APICallback;
+import com.example.android.popular_movies_stage2.panggil.ItemSelectedCallback;
 import com.example.android.popular_movies_stage2.data.MovieContract;
 import com.example.android.popular_movies_stage2.download.FetchMoviesTask;
 
@@ -59,7 +59,7 @@ public class MovieListActivityFragment extends Fragment
   public static final int COL_POSTER_PATH = 8;
   public static final int COL_IS_FAVORITE = 9;
 
-  private MovieListAdapter mMovieListAdapter;
+  private AdapterMovieList mAdapterMovieList;
   private int mPosition;
 
   public MovieListActivityFragment() {
@@ -123,12 +123,12 @@ public class MovieListActivityFragment extends Fragment
       getMovies();
     }
 
-    mMovieListAdapter.swapCursor(data);
+    mAdapterMovieList.swapCursor(data);
   }
 
   @Override
   public void onLoaderReset(Loader<Cursor> loader) {
-    mMovieListAdapter.swapCursor(null);
+    mAdapterMovieList.swapCursor(null);
   }
 
   @Override
@@ -153,11 +153,11 @@ public class MovieListActivityFragment extends Fragment
     GridView gridview =
         (GridView) movieListView.findViewById(R.id.movie_poster_grid);
 
-    mMovieListAdapter = new MovieListAdapter(getActivity(), null, 0);
+    mAdapterMovieList = new AdapterMovieList(getActivity(), null, 0);
 
     TextView view = (TextView) movieListView.findViewById(R.id.no_movies);
 
-    gridview.setAdapter(mMovieListAdapter);
+    gridview.setAdapter(mAdapterMovieList);
 
     gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
       @Override
@@ -202,11 +202,11 @@ public class MovieListActivityFragment extends Fragment
 
       SharedPreferences prefs
           = PreferenceManager.getDefaultSharedPreferences(context);
-      Boolean updated = prefs.contains(MovieDetailAdapter.FAVORITES_UPDATED);
+      Boolean updated = prefs.contains(AdapterMovieDetail.FAVORITES_UPDATED);
       if (updated) {
         restartLoader();
         SharedPreferences.Editor editor = prefs.edit();
-        editor.remove(MovieDetailAdapter.FAVORITES_UPDATED);
+        editor.remove(AdapterMovieDetail.FAVORITES_UPDATED);
         editor.commit();
       }
     }

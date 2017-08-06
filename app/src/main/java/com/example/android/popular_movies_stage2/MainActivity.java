@@ -9,7 +9,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.example.android.popular_movies_stage2.callbacks.ItemSelectedCallback;
+import com.example.android.popular_movies_stage2.panggil.ItemSelectedCallback;
 
 
 public class MainActivity extends AppCompatActivity

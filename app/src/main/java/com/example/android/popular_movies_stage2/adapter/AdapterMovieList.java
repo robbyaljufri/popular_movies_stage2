@@ -1,4 +1,4 @@
-package com.example.android.popular_movies_stage2.adapters;
+package com.example.android.popular_movies_stage2.adapter;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -13,11 +13,11 @@ import com.example.android.popular_movies_stage2.R;
 import com.example.android.popular_movies_stage2.Utils;
 import com.squareup.picasso.Picasso;
 
-public class MovieListAdapter extends CursorAdapter {
+public class AdapterMovieList extends CursorAdapter {
 
-  private final String LOG_TAG = MovieListAdapter.class.getSimpleName();
+  private final String LOG_TAG = AdapterMovieList.class.getSimpleName();
 
-  public MovieListAdapter(Context context, Cursor c, int flags) {
+  public AdapterMovieList(Context context, Cursor c, int flags) {
     super(context, c, flags);
   }
 

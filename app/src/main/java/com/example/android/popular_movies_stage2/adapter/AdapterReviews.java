@@ -1,4 +1,4 @@
-package com.example.android.popular_movies_stage2.adapters;
+package com.example.android.popular_movies_stage2.adapter;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -14,12 +14,12 @@ import com.example.android.popular_movies_stage2.R;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class ReviewAdapter extends CursorAdapter {
+public class AdapterReviews extends CursorAdapter {
 
   @Bind(R.id.review_author) TextView mReviewAuthor;
   @Bind(R.id.review_content) TextView mReviewContent;
 
-  public ReviewAdapter(Context context, Cursor c, int flags) {
+  public AdapterReviews(Context context, Cursor c, int flags) {
     super(context, c, flags);
   }
 

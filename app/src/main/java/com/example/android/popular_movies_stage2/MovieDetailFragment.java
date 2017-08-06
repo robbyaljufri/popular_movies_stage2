@@ -15,10 +15,10 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 
 import com.commonsware.cwac.merge.MergeAdapter;
-import com.example.android.popular_movies_stage2.adapters.MovieDetailAdapter;
-import com.example.android.popular_movies_stage2.adapters.ReviewAdapter;
-import com.example.android.popular_movies_stage2.adapters.TrailersAdapter;
-import com.example.android.popular_movies_stage2.callbacks.APICallback;
+import com.example.android.popular_movies_stage2.adapter.AdapterMovieDetail;
+import com.example.android.popular_movies_stage2.adapter.AdapterReviews;
+import com.example.android.popular_movies_stage2.adapter.AdapterTrailers;
+import com.example.android.popular_movies_stage2.panggil.APICallback;
 import com.example.android.popular_movies_stage2.data.MovieContract;
 import com.example.android.popular_movies_stage2.download.FetchDetailTask;
 
@@ -33,10 +33,10 @@ public class MovieDetailFragment extends Fragment
   private static final int REVIEW_LOADER_ID = 3;
 
   private Uri mMovieURI;
-  private MovieDetailAdapter mMovieDetailAdapter;
-  private TrailersAdapter mTrailerAdapter;
+  private AdapterMovieDetail mAdapterMovieDetail;
+  private AdapterTrailers mTrailerAdapter;
   private boolean mTrailersLoaded;
-  private ReviewAdapter mReviewAdapter;
+  private AdapterReviews mAdapterReviews;
   private boolean mReviewsLoaded;
   private MergeAdapter mMergeAdapter;
 
@@ -139,7 +139,7 @@ public class MovieDetailFragment extends Fragment
     switch (loader.getId()) {
 
       case MOVIE_LOADER_ID: {
-        mMovieDetailAdapter.swapCursor(data);
+        mAdapterMovieDetail.swapCursor(data);
         break;
       }
 
@@ -181,7 +181,7 @@ public class MovieDetailFragment extends Fragment
               });
           detailTask.execute(movieID, getString(R.string.reviews));
         }
-        mReviewAdapter.swapCursor(data);
+        mAdapterReviews.swapCursor(data);
         break;
 
       }
@@ -194,7 +194,7 @@ public class MovieDetailFragment extends Fragment
     switch (loader.getId()) {
 
       case (MOVIE_LOADER_ID):
-        mMovieDetailAdapter.swapCursor(null);
+        mAdapterMovieDetail.swapCursor(null);
         break;
 
       case TRAILER_LOADER_ID:
@@ -202,7 +202,7 @@ public class MovieDetailFragment extends Fragment
         break;
 
       case REVIEW_LOADER_ID:
-        mReviewAdapter.swapCursor(null);
+        mAdapterReviews.swapCursor(null);
         break;
     }
   }
@@ -244,17 +244,17 @@ public class MovieDetailFragment extends Fragment
       mMovieURI = getActivity().getIntent().getData();
     }
 
-    mMovieDetailAdapter = new MovieDetailAdapter(getActivity(), null, 0);
-    mTrailerAdapter = new TrailersAdapter(getActivity(), null, 0);
-    mReviewAdapter = new ReviewAdapter(getActivity(), null, 0);
+    mAdapterMovieDetail = new AdapterMovieDetail(getActivity(), null, 0);
+    mTrailerAdapter = new AdapterTrailers(getActivity(), null, 0);
+    mAdapterReviews = new AdapterReviews(getActivity(), null, 0);
 
     View rootView =
         inflater.inflate(R.layout.fragment_movie_detail_new, container, false);
 
     MergeAdapter mMergeAdapter = new MergeAdapter();
-    mMergeAdapter.addAdapter(mMovieDetailAdapter);
+    mMergeAdapter.addAdapter(mAdapterMovieDetail);
     mMergeAdapter.addAdapter(mTrailerAdapter);
-    mMergeAdapter.addAdapter(mReviewAdapter);
+    mMergeAdapter.addAdapter(mAdapterReviews);
 
     ListView detailsListView = (ListView) rootView.findViewById(R.id.details_listview);
     detailsListView.setAdapter(mMergeAdapter);

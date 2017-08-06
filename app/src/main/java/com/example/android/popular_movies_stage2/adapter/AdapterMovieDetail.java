@@ -1,4 +1,4 @@
-package com.example.android.popular_movies_stage2.adapters;
+package com.example.android.popular_movies_stage2.adapter;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -27,9 +27,9 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class MovieDetailAdapter extends CursorAdapter {
+public class AdapterMovieDetail extends CursorAdapter {
 
-  public static final String LOG_TAG = MovieDetailAdapter.class.getSimpleName();
+  public static final String LOG_TAG = AdapterMovieDetail.class.getSimpleName();
   public static final String FAVORITES_UPDATED = "FavoritesUpdated";
 
 
@@ -42,7 +42,7 @@ public class MovieDetailAdapter extends CursorAdapter {
 
   private long mMovieID = 0;
 
-  public MovieDetailAdapter(Context context, Cursor c, int flags) {
+  public AdapterMovieDetail(Context context, Cursor c, int flags) {
     super(context, c, flags);
   }
 

@@ -1,4 +1,4 @@
-package com.example.android.popular_movies_stage2.adapters;
+package com.example.android.popular_movies_stage2.adapter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -17,11 +17,11 @@ import com.example.android.popular_movies_stage2.R;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class TrailersAdapter extends CursorAdapter {
+public class AdapterTrailers extends CursorAdapter {
 
   @Bind(R.id.trailer_title) TextView mTrailerTitle;
 
-  public TrailersAdapter(Context context, Cursor c, int flags) {
+  public AdapterTrailers(Context context, Cursor c, int flags) {
     super(context, c, flags);
   }
 
